@@ -13,7 +13,14 @@ npm run dev
 
 The API listens on `http://localhost:5000`. The frontend is already configured to use `http://localhost:5000/api` by default.
 
-Registration creates an account with the demo password `demo-password`; use that password when signing in with the same email and role.
+Registration requires a password of at least 8 characters and stores only a bcrypt hash. The development server creates these demo accounts if they do not already exist:
+
+| Account | Email | Password | Role |
+| --- | --- | --- | --- |
+| Admin | `admin@paryatan360.com` | `Admin@12345` | Government |
+| User | `user@paryatan360.com` | `User@12345` | Tourist |
+
+Change these values with `DEMO_*` environment variables before deploying. The Government role is the current admin-style role in this application.
 
 ## Project structure
 

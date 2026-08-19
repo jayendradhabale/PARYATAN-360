@@ -7,8 +7,9 @@ export function requireFields(...fields) {
 }
 
 export function validateRegistration(request, response, next) {
-  const { role } = request.body || {};
-  if (!['Tourist', 'Hotel', 'Business', 'Government'].includes(role)) return response.status(400).json({ message: 'Name, email and a valid role are required.' });
+  const { password, role } = request.body || {};
+  if (!['Tourist', 'Hotel', 'Business', 'Government'].includes(role)) return response.status(400).json({ message: 'Name, email, password and a valid role are required.' });
+  if (password.length < 8) return response.status(400).json({ message: 'Password must be at least 8 characters.' });
   return next();
 }
 

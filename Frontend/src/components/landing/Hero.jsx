@@ -14,7 +14,7 @@ function Hero() {
             PARYATAN 360 connects tourists, hotels, local businesses and tourism authorities through demand prediction, crowd balancing and dynamic trip optimisation.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <a id="planner" href="#how-it-works" className="rounded-full bg-coral px-6 py-3.5 font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#df5547]">
+            <a id="planner" href="/register" className="rounded-full bg-coral px-6 py-3.5 font-bold text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-[#df5547]">
               Plan my journey →
             </a>
             <a href="#partners" className="rounded-full border border-ink/20 bg-white/60 px-6 py-3.5 font-bold transition hover:border-ocean hover:text-ocean">

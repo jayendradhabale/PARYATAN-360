@@ -6,14 +6,14 @@ export function createSession(user) {
   return { token: jwt.sign({ sub: user.id, role: user.role }, config.jwtSecret, { expiresIn: '7d' }), user: user.toJSON(), role: user.role };
 }
 
-export async function registerAccount({ name, email, role }) {
+export async function registerAccount({ name, email, password, role }) {
   const normalisedEmail = email.trim().toLowerCase();
   if (await User.findByEmail(normalisedEmail)) {
     const error = new Error('An account with this email already exists.');
     error.statusCode = 409;
     throw error;
   }
-  const user = await User.create({ name: name.trim(), email: normalisedEmail, role, password: 'demo-password' });
+  const user = await User.create({ name: name.trim(), email: normalisedEmail, role, password });
   return createSession(user);
 }
 
@@ -25,4 +25,15 @@ export async function loginAccount({ email, password, role }) {
     throw error;
   }
   return createSession(user);
+}
+
+export async function ensureDemoAccounts() {
+  const accounts = [
+    { name: 'PARYATAN Admin', email: config.demoAdminEmail, role: 'Government', password: config.demoAdminPassword },
+    { name: 'Demo Tourist', email: config.demoUserEmail, role: 'Tourist', password: config.demoUserPassword },
+  ];
+
+  for (const account of accounts) {
+    if (!await User.findByEmail(account.email)) await User.create(account);
+  }
 }

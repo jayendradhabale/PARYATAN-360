@@ -21,9 +21,7 @@ function Header() {
           ))}
         </nav>
 
-        <a href="#planner" className="rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ocean">
-          Plan a journey
-        </a>
+        <a href="/register" className="rounded-full bg-ink px-5 py-2.5 text-sm font-bold text-white transition hover:bg-ocean">Plan a journey</a>
       </div>
     </header>
   );

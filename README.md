@@ -106,14 +106,6 @@ npm run build     # Create a production frontend build
 npm run preview   # Preview the production build
 ```
 
-## Demo Accounts
-
-The backend creates these development accounts when they do not already exist:
-
-| Role | Email | Password |
-| --- | --- | --- |
-| Government | `admin@paryatan360.com` | `Admin@12345` |
-| Tourist | `user@paryatan360.com` | `User@12345` |
 
 Override the demo values with `DEMO_ADMIN_EMAIL`, `DEMO_ADMIN_PASSWORD`, `DEMO_USER_EMAIL`, and `DEMO_USER_PASSWORD` in `Backend/.env` before deploying.
 
